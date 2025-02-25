@@ -32,13 +32,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.navigation.NavController
 
 
-
-@Preview(showBackground = true)
+/* @Preview(showBackground = true) */
 @Composable
 
-fun BotonesView(){
+fun BotonesView(navegar: NavController){
 
     var texto by remember {
         mutableStateOf("Que hay")
@@ -81,12 +81,13 @@ fun BotonesView(){
                 modifier = Modifier.fillMaxWidth())
 
             Button(onClick = {
-                if(!cambio)
+                /*if(!cambio)
                     texto = "Odio Kotlin"
                 else
                     texto= "Odio Kotlin mas fuerte"
 
-                cambio = !cambio
+                cambio = !cambio*/
+                navegar.popBackStack()
 
             },modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
                 colors = ButtonDefaults.buttonColors(
