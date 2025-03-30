@@ -1,4 +1,4 @@
-package com.example.firstapp.lazylist
+package com.example.firstapp.lazylist.views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -12,7 +12,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -21,24 +20,37 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.firstapp.R
+import com.example.firstapp.lazylist.models.ProductModel
 
 @Preview(showBackground = true)
 @Composable
 
-fun ProductView(){
+fun ProductPreview(){
+    val product = ProductModel(
+        id = 1,
+        name = "Hamburgues",
+        description = null,
+        price = 90f,
+        image = R.drawable.caldo
+    )
+    ProductView(product)
+}
+
+@Composable
+fun ProductView(producto: ProductModel){
     Card (modifier = Modifier.fillMaxWidth()) {
         Row(modifier = Modifier.fillMaxWidth()) {
-            Image(painter = painterResource(id = R.drawable.bowl),
+            Image(painter = painterResource(id = producto.image),
                 contentDescription = "",
                 modifier = Modifier.size(120.dp),
                 contentScale = ContentScale.FillHeight)
 
             Column(modifier = Modifier.padding(horizontal = 10.dp).height(150.dp), verticalArrangement = Arrangement.SpaceAround) {
-                Text(text = "Bowl saludable", fontSize = 18.sp)
-                Text(text = "Nutritivo bowl hecho a base de quinoa, acompañado de aguacate, elote, tomate y pepino",
+                Text(text = producto.name, fontSize = 18.sp)
+                Text(text = producto.description ?: "",
                     fontSize = 10.sp, color = Color.LightGray)
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                    Text(text = "145.00", fontSize = 18.sp)
+                    Text(text = "${producto.price} MXN", fontSize = 18.sp)
                     Button(onClick = {}) {
                         Text(text = "Comprar")
                     }
