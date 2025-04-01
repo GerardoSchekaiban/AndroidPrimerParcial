@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.firstapp.actividad06.NavigationScreen
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.firstapp.parcial2.AppNav
+import com.example.firstapp.parcial2.viewmodel.VueloVm
 
 
 class MainActivity : ComponentActivity() {
@@ -14,15 +14,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
-                NavigationScreen()
+                val viewModel: VueloVm = viewModel()
+                AppNav(viewModel)
             }
         }
     }
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    NavigationScreen()
-}
