@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "445924718238",
+    "project_id": "padelbookproject",
+    "storage_bucket": "padelbookproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445924718238:android:0ae2551228e7f70d072d8f",
+        "android_client_info": {
+          "package_name": "com.example.firstapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlY93n3AVtO2NmeGG-p8bLOcbe6l9rYaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
